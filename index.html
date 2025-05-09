@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KlikTerkini.id - Portal Wawancara Eksklusif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .top-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 0;
+        }
+        
+        .top-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .date-time {
+            font-size: 14px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+        
+        .main-header {
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .logo span {
+            color: #e74c3c;
+        }
+        
+        .tagline {
+            text-align: center;
+            font-style: italic;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        
+        .search-bar {
+            display: flex;
+            margin: 0 auto;
+            max-width: 500px;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-right: none;
+            outline: none;
+        }
+        
+        .search-bar button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #2c3e50;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style-type: none;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .main-nav li {
+            position: relative;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 15px 20px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .main-nav a:hover {
+            background-color: #e74c3c;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin: 30px 0;
+        }
+        
+        .featured-interview {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+        
+        .featured-interview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100%;
+        }
+        
+        .interview-image {
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .interview-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .interview-details {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .interview-tag {
+            background-color: #e74c3c;
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .interview-details h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            line-height: 1.3;
+        }
+        
+        .interview-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .interviewer-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+        
+        .interviewer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .interviewer-info h4 {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+        
+        .interviewer-info p {
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .interview-excerpt {
+            margin-bottom: 25px;
+            color: #555;
+            font-style: italic;
+            line-height: 1.7;
+        }
+        
+        .read-more {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        .read-more:hover {
+            background-color: #e74c3c;
+        }
+        
+        /* Latest Interviews Section */
+        .latest-interviews {
+            margin: 50px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: #2c3e50;
+            display: inline-block;
+            padding: 0 20px;
+            background-color: #f8f8f8;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: #ddd;
+            top: 50%;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .interview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .interview-card {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .interview-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .interview-card-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .interview-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .interview-card:hover .interview-card-img img {
+            transform: scale(1.05);
+        }
+        
+        .interview-card-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        
+        .interview-card-content {
+            padding: 25px;
+        }
+        
+        .interview-card-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            line-height: 1.4;
+        }
+        
+        .interview-card-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .interview-card-meta .interviewer-image {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .interview-card-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .interview-card-date {
+            color: #999;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .interview-length {
+            display: flex;
+            align-items: center;
+        }
+        
+        .interview-length i {
+            margin-right: 5px;
+        }
+        
+        /* Categories Section */
+        .categories-section {
+            margin: 50px 0;
+            background-color: #2c3e50;
+            padding: 60px 0;
+            color: white;
+        }
+        
+        .categories-section .section-title h2 {
+            color: white;
+            background-color: #2c3e50;
+        }
+        
+        .categories-section .section-title::after {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .categories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .category-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .category-card p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+        }
+        
+        .category-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 1px solid white;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        .category-link:hover {
+            background-color: #e74c3c;
+            border-color: #e74c3c;
+        }
+        
+        /* Main Content with Sidebar */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        /* Interview List */
+        .interview-list-item {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+        
+        .interview-list-img {
+            height: 100%;
+            min-height: 250px;
+            overflow: hidden;
+        }
+        
+        .interview-list-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .interview-list-content {
+            padding: 30px;
+        }
+        
+        .interview-list-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .interview-list-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .interview-list-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .interview-list-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 5px;
+            padding: 25px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .widget-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            color: #2c3e50;
+        }
+        
+        .popular-interviews .interview {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .popular-interviews .interview:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .interview-thumbnail {
+            width: 100px;
+            height: 70px;
+            margin-right: 15px;
+            overflow: hidden;
+            border-radius: 3px;
+        }
+        
+        .interview-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .interview-info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        
+        .interview-info .interview-meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 0;
+        }
+        
+        .featured-interviewer {
+            text-align: center;
+        }
+        
+        .interviewer-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 5px solid #f8f8f8;
+        }
+        
+        .interviewer-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .interviewer-name {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .interviewer-role {
+            color: #e74c3c;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .interviewer-bio {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .interviewer-stats {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .view-profile {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        .view-profile:hover {
+            background-color: #e74c3c;
+        }
+        
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag {
+            background-color: #f0f0f0;
+            color: #666;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .tag:hover {
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background-color: #e74c3c;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .newsletter h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter p {
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            outline: none;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .newsletter-form button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            border-radius: 0 3px 3px 0;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #1a2530;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bbb;
+            padding-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-widget h4 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-widget ul {
+            list-style-type: none;
+        }
+        
+        .footer-widget ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-widget a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-widget a:hover {
+            color: white;
+        }
+        
+        .about-widget p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: #e74c3c;
+        }
+        
+        .footer-bottom {
+            background-color: #1a2530;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .featured-interview-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .interview-image {
+                height: 250px;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .interview-list-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .interview-list-img {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .interview-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .categories-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .top-header .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .logo h1 {
+                font-size: 28px;
+            }
+            
+            .interview-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-header">
+            <div class="container">
+                <div class="date-time">Jumat, 9 Mei 2025 | 10:30 WIB</div>
+                <div class="social-icons">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">YouTube</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <h1>Klik<span>Terkini</span>.id</h1>
+                </div>
+                <div class="tagline">
+                    Portal Wawancara Eksklusif Indonesia
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Cari wawancara...">
+                    <button>Cari</button>
+                </div>
+            </div>
+        </div>
+        
+        <nav>
+            <div class="container">
+                <div class="main-nav">
+                    <ul>
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Bisnis</a></li>
+                        <li><a href="#">Politik</a></li>
+                        <li><a href="#">Teknologi</a></li>
+                        <li><a href="#">Budaya</a></li>
+                        <li><a href="#">Pendidikan</a></li>
+                        <li><a href="#">Kesehatan</a></li>
+                        <li><a href="#">Profil</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="featured-interview">
+                <div class="featured-interview-content">
+                    <div class="interview-image">
+                        <img src="/api/placeholder/600/500" alt="Wawancara dengan CEO Startup">
+                    </div>
+                    <div class="interview-details">
+                        <span class="interview-tag">Teknologi</span>
+                        <h2>Wawancara Eksklusif dengan CEO Startup Fintech Terbesar di Indonesia</h2>
+                        <div class="interview-meta">
+                            <div class="interviewer-image">
+                                <img src="/api/placeholder/100/100" alt="Budi Santoso">
+                            </div>
+                            <div class="interviewer-info">
+                                <h4>Budi Santoso</h4>
+                                <p>Editor Senior Teknologi</p>
+                            </div>
+                        </div>
+                        <div class="interview-excerpt">
+                            "Kami melihat potensi besar di pasar keuangan Indonesia, terutama untuk segmen yang belum terlayani oleh bank konvensional. Dalam 5 tahun ke depan, kami menargetkan untuk menjangkau 50 juta pengguna aktif di seluruh Indonesia..."
+                        </div>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Latest Interviews -->
+    <section class="latest-interviews">
+        <div class="container">
+            <div class="section-title">
+                <h2>Wawancara Terbaru</h2>
+            </div>
+            
+            <div class="interview-grid">
+                <div class="interview-card">
+                    <div class="interview-card-img">
+                        <img src="/api/placeholder/400/300" alt="Gubernur Jawa Timur">
+                        <span class="interview-card-tag">Politik</span>
+                    </div>
+                    <div class="interview-card-content">
+                        <h3>Gubernur Jawa Timur Ungkap Strategi Percepatan Ekonomi Daerah</h3>
+                        <div class="interview-card-meta">
+                            <div class="interviewer-image">
+                                <img src="/api/placeholder/100/100" alt="Dian Permata">
+                            </div>
+                            <div class="interviewer-info">
+                                <h4>Dian Permata</h4>
+                            </div>
+                        </div>
+                        <div class="interview-card-excerpt">
+                            Program inovasi daerah "Jatim Bangkit" akan fokus pada tiga sektor utama: pertanian, pariwisata, dan UKM digital...
+                        </div>
+                        <div class="interview-card-date">
+                            <span>08 Mei 2025</span>
+                            <span class="interview-length">15 menit baca</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interview-card">
+                    <div class="interview-card-img">
+                        <img src="/api/placeholder/400/300" alt="Chef Terkenal">
+                        <span class="interview-card-tag">Kuliner</span>
+                    </div>
+                    <div class="interview-card-content">
+                        <h3>Chef Renata Berbagi Rahasia Kuliner Indonesia ke Panggung Dunia</h3>
+                        <div class="interview-card-meta">
+                            <div class="interviewer-image">
+                                <img src="/api/placeholder/100/100" alt="Sari Wijaya">
+                            </div>
+                            <div class="interviewer-info">
+                                <h4>Sari Wijaya</h4>
+                            </div>
+                        </div>
+                        <div class="interview-card-excerpt">
+                            Perjalanan membawa masakan Indonesia ke kompetisi internasional penuh tantangan, tapi saya selalu membawa filosofi "dari rempah untuk dunia"...
+                        </div>
+                        <div class="interview-card-date">
+                            <span>07 Mei 2025</span>
+                            <span class="interview-length">12 menit baca</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interview-card">
+                    <div class="interview-card-img">
+                        <img src="/api/placeholder/400/300" alt="Peneliti Vaksin">
+                        <span class="interview-card-tag">Kesehatan</span>
+                    </div>
+                    <div class="interview-card-content">
+                        <h3>Prof. Dr. Andi Hakim: "Vaksin Dengue Karya Anak Bangsa Siap Produksi Massal"</h3>
+                        <div class="interview-card-meta">
+                            <div class="interviewer-image">
+                                <img src="/api/placeholder/100/100" alt="dr. Ratna Dewi">
+                            </div>
+                            <div class="interviewer-info">
+                                <h4>dr. Ratna Dewi</h4>
+                            </div>
+                        </div>
+                        <div class="interview-card-excerpt">
+                            Setelah 10 tahun penelitian, akhirnya vaksin dengue buatan Indonesia telah melewati uji klinis fase III dengan tingkat efikasi 91,3%...
+                        </div>
+                        <div class="interview-card-date">
+                            <span>06 Mei 2025</span>
+                            <span class="interview-length">20 menit baca</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kategori Wawancara</h2>
+            </div>
+            
+            <div class="categories-container">
+                <div class="category-card">
+                    <div class="category-icon">B</div>
+                    <h3>Bisnis</h3>
+                    <p>Wawancara dengan para pelaku bisnis, pengusaha, startup, dan ekonom terkemuka.</p>
+                    <a href="#" class="category-link">Lihat Wawancara</a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">P</div>
+                    <h3>Politik</h3>
+                    <p>Wawancara dengan tokoh politik, pejabat publik, dan pengamat politik nasional.</p>
+                    <a href="#" class="category-link">Lihat Wawancara</a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">T</div>
+                    <h3>Teknologi</h3>
+                    <p>Wawancara dengan inovator teknologi, developer, dan tokoh di industri digital.</p>
+                    <a href="#" class="category-link">Lihat Wawancara</a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">B</div>
+                    <h3>Budaya</h3>
+                    <p>Wawancara dengan seniman, budayawan, dan pelaku seni tradisional Indonesia.</p>
+                    <a href="#" class="category-link">Lihat Wawancara</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Content with Sidebar -->
+    <div class="container">
+        <div class="main-content">
+            <div class="content">
+                <!-- Wawancara List -->
+                <div class="interview-list">
+                    <div class="interview-list-item">
+                        <div class="interview-list-img">
+                            <img src="/api/placeholder/500/400" alt="Wawancara dengan Menteri">
+                        </div>
+                        <div class="interview-list-content">
+                            <span class="interview-tag">Pendidikan</span>
+                            <h3>Menteri Pendidikan: "Kurikulum Merdeka Belajar Akan Terus Disempurnakan"</h3>
+                            <div class="interview-list-meta">
+                                <div class="interviewer-image">
+                                    <img src="/api/placeholder/100/100" alt="Ahmad Fadli">
+                                </div>
+                                <div class="interviewer-info">
+                                    <h4>Ahmad Fadli</h4>
+                                    <p>Editor Pendidikan</p>
+                                </div>
+                            </div>
+                            <div class="interview-list-excerpt">
+                                Dalam wawancara eksklusif ini, Menteri Pendidikan mengungkapkan rencana pengembangan kurikulum Merdeka Belajar untuk 5 tahun ke depan, termasuk integrasi lebih banyak keterampilan digital dan kewirausahaan dalam materi pembelajaran sekolah...
+                            </div>
+                            <div class="interview-list-footer">
+                                <span>05 Mei 2025</span>
+                                <a href="#" class="read-more">Baca Selengkapnya</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="interview-list-item">
+                        <div class="interview-list-img">
+                            <img src="/api/placeholder/500/400" alt="Wawancara dengan Atlet">
+                        </div>
+                        <div class="interview-list-content">
+                            <span class="interview-tag">Olahraga</span>
+                            <h3>Greysia Polii: "Regenerasi Atlet Bulu Tangkis Indonesia Harus Dipercepat"</h3>
+                            <div class="interview-list-meta">
+                                <div class="interviewer-image">
+                                    <img src="/api/placeholder/100/100" alt="Reza Pradana">
+                                </div>
+                                <div class="interviewer-info">
+                                    <h4>Reza Pradana</h4>
+                                    <p>Jurnalis Olahraga</p>
+                                </div>
+                            </div>
+                            <div class="interview-list-excerpt">
+                                Legenda bulu tangkis Indonesia, Greysia Polii, berbicara tentang kondisi pembinaan atlet muda saat ini dan memberikan pandangannya tentang persiapan menghadapi Olimpiade 2028...
+                            </div>
+                            <div class="interview-list-footer">
+                                <span>04 Mei 2025</span>
+                                <a href="#" class="read-more">Baca Selengkapnya</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="interview-list-item">
+                        <div class="interview-list-img">
+                            <img src="/api/placeholder/500/400" alt="Wawancara dengan Ekonom">
+                        </div>
+                        <div class="interview-list-content">
+                            <span class="interview-tag">Ekonomi</span>
+                            <h3>Ekonom Senior Bank Dunia: "Indonesia Berpotensi Jadi 5 Besar Ekonomi Dunia"</h3>
+                            <div class="interview-list-meta">
+                                <div class="interviewer-image">
+                                    <img src="/api/placeholder/100/100" alt="Maya Putri">
+                                </div>
+                                <div class="interviewer-info">
+                                    <h4>Maya Putri</h4>
+                                    <p>Kepala Desk Ekonomi</p>
+                                </div>
+                            </div>
+                            <div class="interview-list-excerpt">
+                                Dalam analisis terbarunya, ekonom senior Bank Dunia memaparkan potensi ekonomi Indonesia jika reformasi struktural dan transformasi digital berhasil dijalankan dengan konsisten...
+                            </div>
+                            <div class="interview-list-footer">
+                                <span>03 Mei 2025</span>
+                                <a href="#" class="read-more">Baca Selengkapnya</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-widget popular-interviews">
+                    <h3 class="widget-title">Wawancara Populer</h3>
+                    <div class="interview">
+                        <div class="interview-thumbnail">
+                            <img src="/api/placeholder/100/80" alt="Wawancara Populer 1">
+                        </div>
+                        <div class="interview-info">
+                            <h4>Ridwan Kamil Bicara Soal Smart City dan Masa Depan Urbanisasi</h4>
+                            <div class="interview-meta">10 Mei 2025</div>
+                        </div>
+                    </div>
+                    <div class="interview">
+                        <div class="interview-thumbnail">
+                            <img src="/api/placeholder/100/80" alt="Wawancara Populer 2">
+                        </div>
+                        <div class="interview-info">
+                            <h4>Najwa Shihab: "Jurnalisme Independen Kunci Demokrasi Sehat"</h4>
+                            <div class="interview-meta">08 Mei 2025</div>
+                        </div>
+                    </div>
+                    <div class="interview">
+                        <div class="interview-thumbnail">
+                            <img src="/api/placeholder/100/80" alt="Wawancara Populer 3">
+                        </div>
+                        <div class="interview-info">
+                            <h4>CEO GoTo Ungkap Strategi Ekspansi ke Asia Tenggara</h4>
+                            <div class="interview-meta">06 Mei 2025</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-widget featured-interviewer">
+                    <h3 class="widget-title">Pewawancara Unggulan</h3>
+                    <div class="interviewer-avatar">
+                        <img src="/api/placeholder/150/150" alt="Maya Putri">
+                    </div>
+                    <h4 class="interviewer-name">Maya Putri</h4>
+                    <p class="interviewer-role">Kepala Desk Ekonomi</p>
+                    <p class="interviewer-bio">Jurnalis senior dengan pengalaman lebih dari 15 tahun meliput isu-isu ekonomi dan bisnis. Pemenang Anugerah Jurnalistik Indonesia 2023.</p>
+                    <div class="interviewer-stats">
+                        <div class="stat">
+                            <div class="stat-number">127</div>
+                            <div class="stat-label">Wawancara</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Tahun</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Penghargaan</div>
+                        </div>
+                    </div>
+                    <a href="#" class="view-profile">Lihat Profil</a>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Topik Populer</h3>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag">Ekonomi Digital</a>
+                        <a href="#" class="tag">Startup</a>
+                        <a href="#" class="tag">Kebijakan Publik</a>
+                        <a href="#" class="tag">Pendidikan</a>
+                        <a href="#" class="tag">Kesehatan</a>
+                        <a href="#" class="tag">Lingkungan</a>
+                        <a href="#" class="tag">UMKM</a>
+                        <a href="#" class="tag">Teknologi</a>
+                        <a href="#" class="tag">Energi Terbarukan</a>
+                        <a href="#" class="tag">Pariwisata</a>
+                        <a href="#" class="tag">Transportasi</a>
+                        <a href="#" class="tag">Budaya</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h3>Dapatkan Wawancara Eksklusif di Email Anda</h3>
+            <p>Berlangganan newsletter kami untuk mendapatkan akses awal ke wawancara-wawancara menarik dan konten eksklusif dari KlikTerkini.id setiap minggunya.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Masukkan alamat email Anda">
+                <button>Berlangganan</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-widget about-widget">
+                    <h4>Tentang KlikTerkini.id</h4>
+                    <p>KlikTerkini.id adalah portal wawancara eksklusif yang menyajikan percakapan mendalam dengan tokoh-tokoh penting dari berbagai bidang di Indonesia. Kami berkomitmen untuk menghadirkan wawasan dan perspektif yang inspiratif melalui wawancara berkualitas.</p>
+                    <div class="footer-social">
+                        <a href="#">F</a>
+                        <a href="#">T</a>
+                        <a href="#">I</a>
+                        <a href="#">Y</a>
+                    </div>
+                </div>
+                
+                <div class="footer-widget">
+                    <h4>Kategori Populer</h4>
+                    <ul>
+                        <li><a href="#">Bisnis & Ekonomi</a></li>
+                        <li><a href="#">Politik & Kebijakan</a></li>
+                        <li><a href="#">Teknologi & Inovasi</a></li>
+                        <li><a href="#">Seni & Budaya</a></li>
+                        <li><a href="#">Pendidikan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-widget">
+                    <h4>Informasi</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Tim Editorial</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Pedoman Media</a></li>
+                        <li><a href="#">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-widget">
+                    <h4>Alamat</h4>
+                    <p>Gedung Media Center<br>
+                    Jl. Jendral Sudirman No. 123<br>
+                    Jakarta Pusat, 10220<br>
+                    Indonesia<br><br>
+                    Email: redaksi@klikterkini.id<br>
+                    Telp: (021) 555-7890</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 KlikTerkini.id - Portal Wawancara Eksklusif Indonesia</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
