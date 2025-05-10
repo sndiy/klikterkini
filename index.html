@@ -3,2461 +3,673 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KlikTerkini.id - Portal Wawancara Eksklusif</title>
+    <title>KlikTerkini.id - Berita Terkini & Terpercaya</title>
     <style>
-        :root {
-            --primary: #e74c3c;
-            --secondary: #2c3e50;
-            --light: #f8f8f8;
-            --dark: #333;
-            --gray: #777;
-            --light-gray: #eee;
-            --transition: all 0.3s ease;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header Styles - Enhanced */
-        header {
-            background-color: #fff;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .top-header {
-            background-color: var(--secondary);
-            color: white;
-            padding: 10px 0;
-        }
-        
-        .top-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .date-time {
-            font-size: 14px;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-icons a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            transition: var(--transition);
-        }
-        
-        .social-icons a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .main-header {
-            padding: 20px 0;
-        }
-        
-        .logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .logo h1 {
-            font-size: 36px;
-            font-weight: bold;
-            color: var(--secondary);
-            position: relative;
-        }
-        
-        .logo span {
-            color: var(--primary);
-            position: relative;
-        }
-        
-        .logo span::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: var(--primary);
-            border-radius: 50%;
-            bottom: 5px;
-            right: -8px;
-        }
-        
-        .tagline {
-            text-align: center;
-            font-style: italic;
-            color: var(--gray);
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        
-        .search-bar {
-            display: flex;
-            margin: 0 auto;
-            max-width: 500px;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .search-bar input {
-            flex: 1;
-            padding: 12px 20px;
-            border: 1px solid var(--light-gray);
-            border-right: none;
-            outline: none;
-            font-size: 15px;
-        }
-        
-        .search-bar button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: var(--transition);
-        }
-        
-        .search-bar button:hover {
-            background-color: #c0392b;
-        }
-        
-        /* Navigation - Enhanced */
-        nav {
-            background-color: var(--secondary);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 3px solid var(--primary);
-        }
-        
-        .main-nav ul {
-            display: flex;
-            list-style-type: none;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .main-nav li {
-            position: relative;
-        }
-        
-        .main-nav a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 15px 20px;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-        
-        .main-nav a:hover {
-            background-color: var(--primary);
-        }
-        
-        .main-nav a.active {
-            background-color: var(--primary);
-        }
-        
-        .main-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 3px;
-            background-color: white;
-            transition: var(--transition);
-            transform: translateX(-50%);
-        }
-        
-        .main-nav a:hover::after {
-            width: 70%;
-        }
-        
-        /* Mobile Menu Button */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 10px;
-        }
-        
-        /* Hero Section - Enhanced */
-        .hero {
-            margin: 30px 0;
-        }
-        
-        .featured-interview {
-            position: relative;
-            height: 550px;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
-            background-color: #fff;
-        }
-        
-        .featured-interview-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            height: 100%;
-        }
-        
-        .interview-image {
-            height: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .interview-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%);
-        }
-        
-        .interview-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .featured-interview:hover .interview-image img {
-            transform: scale(1.05);
-        }
-        
-        .interview-details {
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .interview-details::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 120px;
-            color: rgba(231, 76, 60, 0.1);
-            font-family: Georgia, serif;
-        }
-        
-        .interview-tag {
-            background-color: var(--primary);
-            color: white;
-            display: inline-block;
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-size: 14px;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            font-weight: bold;
-            box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3);
-        }
-        
-        .interview-details h2 {
-            font-size: 32px;
-            margin-bottom: 25px;
-            color: var(--secondary);
-            line-height: 1.3;
-            position: relative;
-        }
-        
-        .interview-meta {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            background-color: #f8f8f8;
-            padding: 10px 15px;
-            border-radius: 50px;
-            width: fit-content;
-        }
-        
-        .interviewer-image {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            margin-right: 15px;
-            overflow: hidden;
-            border: 3px solid white;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .interviewer-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .interviewer-info h4 {
-            font-size: 16px;
-            margin-bottom: 3px;
-            color: var(--secondary);
-        }
-        
-        .interviewer-info p {
-            font-size: 14px;
-            color: var(--primary);
-            font-weight: 500;
-        }
-        
-        .interview-excerpt {
-            margin-bottom: 30px;
-            color: var(--gray);
-            font-style: italic;
-            line-height: 1.8;
-            font-size: 16px;
-            position: relative;
-            padding-left: 20px;
-            border-left: 3px solid var(--primary);
-        }
-        
-        .read-more {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 30px;
-            transition: var(--transition);
-            font-weight: 500;
-            box-shadow: 0 3px 10px rgba(44, 62, 80, 0.2);
-        }
-        
-        .read-more:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-        }
-        
-        /* Video Button - New Feature */
-        .video-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(231, 76, 60, 0.4);
-            transition: var(--transition);
-        }
-        
-        .video-button:hover {
-            transform: scale(1.1);
-            background-color: #c0392b;
-        }
-        
-        /* Latest Interviews - Enhanced */
-        .latest-interviews {
-            margin: 60px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 32px;
-            color: var(--secondary);
-            display: inline-block;
             padding: 0 20px;
-            background-color: var(--light);
-            position: relative;
-            z-index: 1;
         }
-        
-        .section-title h2::before {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+
+        /* Header */
+        header {
+            background-color: #1a237e;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            background-color: #ddd;
-            top: 50%;
-            left: 0;
-            z-index: 0;
-        }
-        
-        .interview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .interview-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-        
-        .interview-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        
-        .interview-card-img {
-            height: 220px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .interview-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .interview-card:hover .interview-card-img img {
-            transform: scale(1.05);
-        }
-        
-        .interview-card-tag {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--primary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            text-transform: uppercase;
-            font-weight: bold;
-            box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3);
-            z-index: 1;
-        }
-        
-        .interview-card-bookmark {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: white;
-            color: var(--gray);
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
+
+        .header-content {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: var(--transition);
-            z-index: 1;
-        }
-        
-        .interview-card-bookmark:hover, .interview-card-bookmark.active {
-            color: var(--primary);
-            transform: scale(1.1);
-        }
-        
-        .interview-card-content {
-            padding: 25px;
-        }
-        
-        .interview-card-content h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--secondary);
-            line-height: 1.4;
-            transition: var(--transition);
-        }
-        
-        .interview-card:hover .interview-card-content h3 {
-            color: var(--primary);
-        }
-        
-        .interview-card-meta {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            background-color: #f8f8f8;
-            padding: 8px 12px;
-            border-radius: 50px;
-            width: fit-content;
-        }
-        
-        .interview-card-meta .interviewer-image {
-            width: 30px;
-            height: 30px;
-            border: 2px solid white;
-        }
-        
-        .interview-card-excerpt {
-            color: var(--gray);
-            margin-bottom: 20px;
-            line-height: 1.6;
-            font-size: 15px;
-        }
-        
-        .interview-card-date {
-            color: #999;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding-top: 15px;
-            border-top: 1px solid var(--light-gray);
-        }
-        
-        .interview-length {
-            display: flex;
             align-items: center;
-            gap: 5px;
         }
-        
-        .interview-length i {
-            color: var(--primary);
-        }
-        
-        /* Categories Section - Enhanced */
-        .categories-section {
-            margin: 60px 0;
-            background-color: var(--secondary);
-            padding: 70px 0;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .categories-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('/api/placeholder/1200/500') center/cover no-repeat;
-            opacity: 0.05;
-        }
-        
-        .categories-section .section-title h2 {
-            color: white;
-            background-color: var(--secondary);
-        }
-        
-        .categories-section .section-title h2::before {
-            background-color: white;
-        }
-        
-        .categories-section .section-title::after {
-            background-color: rgba(255,255,255,0.2);
-        }
-        
-        .categories-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-            gap: 30px;
-        }
-        
-        .category-card {
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s, background-color 0.3s;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .category-card::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary);
-            transition: var(--transition);
-            z-index: -1;
-        }
-        
-        .category-card:hover::before {
-            height: 100%;
-            background-color: var(--primary);
-        }
-        
-        .category-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .category-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-            width: 80px;
-            height: 80px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            transition: var(--transition);
-        }
-        
-        .category-card:hover .category-icon {
-            background-color: rgba(255,255,255,0.2);
-            transform: scale(1.1);
-        }
-        
-        .category-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-        
-        .category-card p {
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-        
-        .category-link {
-            display: inline-block;
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
-            border: 2px solid white;
-            border-radius: 30px;
-            transition: var(--transition);
-            font-weight: 500;
         }
-        
-        .category-card:hover .category-link {
-            background-color: white;
-            color: var(--primary);
-            border-color: white;
-            transform: translateY(5px);
-        }
-        
-        /* Featured Videos Section - New Section */
-        .featured-videos {
-            margin: 60px 0;
-        }
-        
-        .video-carousel {
-            position: relative;
-            overflow: hidden;
-            padding: 20px 0;
-        }
-        
-        .video-wrapper {
-            display: flex;
-            gap: 30px;
-            margin: 0 auto;
-            overflow-x: auto;
-            padding: 20px 0;
-            scroll-behavior: smooth;
-            scroll-snap-type: x mandatory;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        
-        .video-wrapper::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .video-card {
-            min-width: 350px;
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-            scroll-snap-align: start;
-        }
-        
-        .video-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .video-thumbnail {
-            position: relative;
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .video-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .video-card:hover .video-thumbnail img {
-            transform: scale(1.05);
-        }
-        
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 3px 15px rgba(231, 76, 60, 0.4);
-            transition: var(--transition);
-        }
-        
-        .video-card:hover .play-button {
-            background-color: var(--secondary);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-        
-        .video-content {
-            padding: 20px;
-        }
-        
-        .video-content h3 {
-            font-size: 18px;
-            color: var(--secondary);
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-        
-        .video-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: var(--gray);
-            font-size: 14px;
-        }
-        
-        .video-meta .duration {
-            background-color: var(--light);
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-weight: 500;
-        }
-        
-        .carousel-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .carousel-button {
-            width: 40px;
-            height: 40px;
-            background-color: white;
-            border: none;
-            border-radius: 50%;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: var(--secondary);
-            transition: var(--transition);
-        }
-        
-        .carousel-button:hover {
-            background-color: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        /* Main Content with Sidebar - Enhanced */
-        .main-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            margin: 60px 0;
-        }
-        
-        /* Interview List - Enhanced */
-        .interview-list-item {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            transition: transform 0.3s;
-        }
-        
-        .interview-list-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        
-        .interview-list-img {
-            height: 100%;
-            min-height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .interview-list-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .interview-list-item:hover .interview-list-img img {
-            transform: scale(1.05);
-        }
-        
-        .interview-list-content {
-            padding: 30px;
-            position: relative;
-        }
-        
-        .interview-list-content h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--secondary);
-            transition: var(--transition);
-        }
-        
-        .interview-list-item:hover .interview-list-content h3 {
-            color: var(--primary);
-        }
-        
-        .interview-list-meta {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            background-color: #f8f8f8;
-            padding: 8px 12px;
-            border-radius: 50px;
-            width: fit-content;
-        }
-        
-        .interview-list-excerpt {
-            color: var(--gray);
-            margin-bottom: 25px;
-            line-height: 1.7;
-            font-size: 15px;
-        }
-        
-        .interview-list-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #999;
-            font-size: 14px;
-            border-top: 1px solid var(--light-gray);
-            padding-top: 20px;
-        }
-        
-        .interview-list-stats {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        
-        .interview-stat {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: var(--gray);
-        }
-        
-        .interview-stat i {
-            color: var(--primary);
-        }
-        
-        /* Sidebar - Enhanced */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-        
-        .sidebar-widget {
-            background-color: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-        
-        .widget-title {
-            font-size: 20px;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--light-gray);
-            color: var(--secondary);
-            position: relative;
-        }
-        
-        .widget-title::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary);
-        }
-        
-        .popular-interviews .interview {
-            display: flex;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--light-gray);
-            transition: var(--transition);
-        }
-        
-        .popular-interviews .interview:hover {
-            transform: translateX(10px);
-        }
-        
-        .popular-interviews .interview:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .interview-thumbnail {
-            width: 100px;
-            height: 70px;
-            margin-right: 15px;
-            overflow: hidden;
-            border-radius: 5px;
-        }
-        
-        .interview-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .popular-interviews .interview:hover .interview-thumbnail img {
-            transform: scale(1.1);
-        }
-        
-        .interview-info h4 {
-            font-size: 16px;
-            margin-bottom: 5px;
-            line-height: 1.4;
-            color: var(--secondary);
-            transition: var(--transition);
-        }
-        
-        .popular-interviews .interview:hover .interview-info h4 {
-            color: var(--primary);
-        }
-        
-        .interview-info .interview-meta {
-            font-size: 12px;
-            color: #999;
-            margin-bottom: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .interview-info .interview-meta span {
-            display: flex;
-            align-items: center;
-            gap: 3px;
-        }
-        
-        .interview-info .interview-meta i {
-            color: var(--primary);
-        }
-        
-        .featured-interviewer {
-            text-align: center;
-        }
-        
-        .interviewer-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            overflow: hidden;
-            border: 5px solid #f8f8f8;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        
-        .interviewer-avatar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.2);
-        }
-        
-        .interviewer-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .featured-interviewer:hover .interviewer-avatar img {
-            transform: scale(1.1);
-        }
-        
-        .interviewer-name {
-            font-size: 22px;
-            margin-bottom: 5px;
-            color: var(--secondary);
-        }
-        
-        .interviewer-role {
-            color: var(--primary);
-            font-style: italic;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-        
-        .interviewer-bio {
-            color: var(--gray);
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-        
-        .interviewer-stats {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 22px;
-            font-weight: bold;
-            color: var(--secondary);
-        }
-        
-        .stat-label {
-            font-size: 14px;
-            color: var(--gray);
-        }
-        
-        .view-profile {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-        
-        .view-profile:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-        }
-        
-        .tag-cloud {
+
+        .logo span {
+            color: #ffc107;
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
         }
-        
-        .tag {
-            background-color: var(--light);
-            color: var(--gray);
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-size: 14px;
-            transition: var(--transition);
-            text-decoration: none;
+
+        nav ul li {
+            margin-left: 2rem;
         }
-        
-        .tag:hover {
-            background-color: var(--primary);
+
+        nav ul li a {
             color: white;
-            transform: translateY(-3px);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-        
-        /* Subscribe and Follow Widget - New */
-        .subscribe-widget {
-            text-align: center;
+
+        nav ul li a:hover {
+            color: #ffc107;
         }
-        
-        .subscribe-widget p {
-            margin-bottom: 20px;
-            color: var(--gray);
-            line-height: 1.7;
+
+        /* Breaking News Ticker */
+        .breaking-news {
+            background-color: #b71c1c;
+            color: white;
+            padding: 0.5rem 0;
+            overflow: hidden;
+            white-space: nowrap;
         }
-        
-        .social-follow {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .social-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--light);
-            color: var(--gray);
+
+        .breaking-news-content {
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: var(--transition);
+            animation: scroll 30s linear infinite;
         }
-        
-        .social-btn:hover {
+
+        .breaking-news-label {
+            background-color: #d32f2f;
+            padding: 0.25rem 1rem;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+
+        /* Featured News */
+        .featured-news {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .featured-content {
+            padding: 1.5rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background-color: #1a237e;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .featured-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .featured-excerpt {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 1rem;
+            color: #777;
+            font-size: 0.875rem;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .news-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
             transform: translateY(-5px);
         }
-        
-        .social-btn.facebook:hover {
-            background-color: #3b5998;
-            color: white;
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
         }
-        
-        .social-btn.twitter:hover {
-            background-color: #1da1f2;
-            color: white;
+
+        .news-content {
+            padding: 1rem;
         }
-        
-        .social-btn.instagram:hover {
-            background-color: #e1306c;
-            color: white;
+
+        .news-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
-        
-        .social-btn.youtube:hover {
-            background-color: #ff0000;
-            color: white;
+
+        .news-excerpt {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
-        
-        .subscribe-form {
+
+        /* Sidebar */
+        .sidebar {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #1a237e;
+            padding-bottom: 0.5rem;
+        }
+
+        .popular-item {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
         }
-        
-        .subscribe-form input {
-            padding: 12px 15px;
-            border: 1px solid var(--light-gray);
-            border-radius: 30px;
-            outline: none;
-            font-size: 14px;
-            transition: var(--transition);
-        }
-        
-        .subscribe-form input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
-        }
-        
-        .subscribe-form button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .subscribe-form button:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        /* Poll Widget - New */
-        .poll-widget .question {
+
+        .popular-number {
+            font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 15px;
-            color: var(--secondary);
+            color: #1a237e;
+            width: 30px;
         }
-        
-        .poll-options {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+
+        .popular-content {
+            flex: 1;
         }
-        
-        .poll-option {
-            background-color: var(--light);
-            border-radius: 5px;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
+
+        .popular-title {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
         }
-        
-        .poll-option:hover {
-            background-color: #f0f0f0;
+
+        .popular-meta {
+            font-size: 0.8rem;
+            color: #777;
         }
-        
-        .poll-option.selected {
-            background-color: rgba(231, 76, 60, 0.1);
-            border-left: 3px solid var(--primary);
+
+        /* Categories Widget */
+        .category-widget {
+            list-style: none;
         }
-        
-        .poll-option .percentage {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            background-color: rgba(231, 76, 60, 0.1);
-            border-radius: 5px;
-            z-index: 0;
+
+        .category-widget li {
+            margin-bottom: 0.5rem;
         }
-        
-        .poll-option-text {
-            position: relative;
-            z-index: 1;
+
+        .category-widget a {
+            text-decoration: none;
+            color: #333;
             display: flex;
             justify-content: space-between;
+            padding: 0.5rem;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
-        
-        .poll-result {
-            font-weight: bold;
+
+        .category-widget a:hover {
+            background-color: #e0e0e0;
         }
-        
-        .poll-vote-btn {
-            display: block;
-            text-align: center;
-            background-color: var(--secondary);
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 30px;
-            margin-top: 20px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .poll-vote-btn:hover {
-            background-color: var(--primary);
-        }
-        
-        /* Newsletter - Enhanced */
-        .newsletter {
-            background-color: var(--primary);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .newsletter::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('/api/placeholder/1200/600') center/cover no-repeat;
-            opacity: 0.05;
-            z-index: 0;
-        }
-        
-        .newsletter .container {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .newsletter h3 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        
-        .newsletter p {
-            margin-bottom: 35px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-            line-height: 1.7;
-            font-size: 16px;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-            border-radius: 50px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-        
-        .newsletter-form input {
-            flex: 1;
-            padding: 18px 25px;
-            border: none;
-            outline: none;
-            font-size: 16px;
-        }
-        
-        .newsletter-form button {
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            padding: 18px 30px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: var(--transition);
-        }
-        
-        .newsletter-form button:hover {
-            background-color: #1a2530;
-        }
-        
-        /* Stats Counter - New Section */
-        .stats-counter {
-            padding: 60px 0;
-            background-color: white;
-            text-align: center;
-        }
-        
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-        
-        .counter-item {
-            padding: 20px;
-        }
-        
-        .counter-icon {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .counter-number {
-            font-size: 50px;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-bottom: 10px;
-            position: relative;
-        }
-        
-        .counter-number::after {
-            content: '+';
-            font-size: 30px;
-            position: absolute;
-            top: 10px;
-        }
-        
-        .counter-text {
-            color: var(--gray);
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* Footer - Enhanced */
+
+        /* Footer */
         footer {
-            background-color: var(--secondary);
-            color: #bbb;
-            padding-top: 70px;
+            background-color: #1a237e;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
         }
-        
+
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
-        
-        .footer-widget h4 {
-            color: white;
-            font-size: 20px;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            position: relative;
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ffc107;
         }
-        
-        .footer-widget h4::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary);
+
+        .footer-section ul {
+            list-style: none;
         }
-        
-        .footer-widget ul {
-            list-style-type: none;
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
         }
-        
-        .footer-widget ul li {
-            margin-bottom: 15px;
-            transition: var(--transition);
-        }
-        
-        .footer-widget ul li:hover {
-            transform: translateX(10px);
-        }
-        
-        .footer-widget a {
-            color: #bbb;
+
+        .footer-section ul li a {
+            color: #ccc;
             text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            transition: color 0.3s;
         }
-        
-        .footer-widget a i {
-            color: var(--primary);
-            font-size: 12px;
-        }
-        
-        .footer-widget a:hover {
+
+        .footer-section ul li a:hover {
             color: white;
         }
-        
-        .about-widget p {
-            margin-bottom: 25px;
-            line-height: 1.7;
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #ccc;
         }
-        
-        .footer-social {
+
+        /* Social Media Icons */
+        .social-links {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
+            margin-top: 1rem;
         }
-        
-        .footer-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .social-links a {
             width: 40px;
             height: 40px;
-            background-color: rgba(255,255,255,0.1);
+            background-color: #333;
             color: white;
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-        
-        .footer-social a:hover {
-            background-color: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        .footer-bottom {
-            background-color: #1a2530;
-            padding: 25px 0;
-            text-align: center;
-            font-size: 14px;
-            position: relative;
-        }
-        
-        .back-to-top {
-            position: absolute;
-            right: 30px;
-            top: -25px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(231, 76, 60, 0.4);
-            transition: var(--transition);
-        }
-        
-        .back-to-top:hover {
-            background-color: #c0392b;
-            transform: translateY(-5px);
-        }
-        
-        /* Dark Mode Toggle - New Feature */
-        .dark-mode-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--secondary);
-            color: white;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            z-index: 100;
-            transition: var(--transition);
+            text-decoration: none;
+            transition: background-color 0.3s;
         }
-        
-        .dark-mode-toggle:hover {
-            background-color: var(--primary);
-            transform: scale(1.1);
+
+        .social-links a:hover {
+            background-color: #ffc107;
         }
-        
-        /* Responsive Design - Enhanced */
-        @media (max-width: 1200px) {
-            .featured-interview {
-                height: auto;
-            }
-            
-            .featured-interview-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .interview-image {
-                height: 400px;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .interview-list-item {
-                grid-template-columns: 1fr;
-            }
-            
-            .interview-list-img {
-                height: 300px;
-            }
-            
-            .categories-container {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .video-card {
-                min-width: 300px;
-            }
-        }
-        
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .header-nav {
-                display: none;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
-            .logo h1 {
-                font-size: 30px;
-            }
-            
-            .interview-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-            
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .newsletter h3 {
-                font-size: 28px;
-            }
-            
-            .newsletter-form {
+            .header-content {
                 flex-direction: column;
-                max-width: 400px;
-                border-radius: 5px;
+                gap: 1rem;
             }
-            
-            .newsletter-form input {
-                width: 100%;
-                border-radius: 5px 5px 0 0;
+
+            nav ul li {
+                margin: 0.5rem;
             }
-            
-            .newsletter-form button {
-                width: 100%;
-                border-radius: 0 0 5px 5px;
-            }
-            
-            .back-to-top {
-                right: 20px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .top-header .container {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .social-icons {
-                margin-top: 10px;
-            }
-            
-            .logo h1 {
-                font-size: 24px;
-            }
-            
-            .tagline {
-                font-size: 14px;
-            }
-            
-            .search-bar {
-                max-width: 100%;
-            }
-            
-            .interview-details {
-                padding: 30px 20px;
-            }
-            
-            .interview-details h2 {
-                font-size: 24px;
-            }
-            
-            .interview-grid,
-            .categories-container {
+
+            .content-wrapper {
                 grid-template-columns: 1fr;
             }
-            
-            .video-wrapper {
-                padding: 10px 0;
-            }
-            
-            .video-card {
-                min-width: 250px;
-            }
-            
-            .stats-container {
+
+            .news-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .dark-mode-toggle {
-                bottom: 20px;
-                right: 20px;
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
+
+            .featured-image {
+                height: 250px;
             }
         }
-        
-        /* Animation Styles */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate-fadeIn {
-            animation: fadeIn 0.6s ease forwards;
-        }
-        
-        /* Loading Animation - New Feature */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
+
+        /* Search Form */
+        .search-form {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
+            margin-top: 1rem;
         }
-        
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+
+        .search-form input {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
         }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        .search-form button {
+            padding: 0.5rem 1rem;
+            background-color: #1a237e;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .search-form button:hover {
+            background-color: #283593;
+        }
+
+        /* Advertisement Placeholder */
+        .ad-space {
+            background-color: #f0f0f0;
+            border: 2px dashed #ccc;
+            text-align: center;
+            padding: 2rem;
+            margin: 1rem 0;
+            color: #777;
         }
     </style>
 </head>
 <body>
-    <!-- Loading Animation -->
-    <div class="loading">
-        <div class="loading-spinner"></div>
-    </div>
-
     <!-- Header -->
     <header>
-        <div class="top-header">
-            <div class="container">
-                <div class="date-time">Jumat, 9 Mei 2025 | 10:30 WIB</div>
-                <div class="social-icons">
-                    <a href="#"><i class="icon">F</i></a>
-                    <a href="#"><i class="icon">T</i></a>
-                    <a href="#"><i class="icon">I</i></a>
-                    <a href="#"><i class="icon">Y</i></a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="main-header">
-            <div class="container">
-                <div class="logo">
-                    <h1>Klik<span>Terkini</span>.id</h1>
-                </div>
-                <div class="tagline">
-                    Portal Wawancara Eksklusif Indonesia
-                </div>
-                <div class="search-bar">
-                    <input type="text" placeholder="Cari wawancara...">
-                    <button>Cari</button>
-                </div>
-            </div>
-        </div>
-        
-        <nav>
-            <div class="container">
-                <button class="menu-toggle">≡</button>
-                <div class="main-nav">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Klik<span>Terkini</span>.id</a>
+                <nav>
                     <ul>
-                        <li><a href="#" class="active">Beranda</a></li>
-                        <li><a href="#">Bisnis</a></li>
+                        <li><a href="#">Beranda</a></li>
                         <li><a href="#">Politik</a></li>
+                        <li><a href="#">Ekonomi</a></li>
                         <li><a href="#">Teknologi</a></li>
-                        <li><a href="#">Budaya</a></li>
-                        <li><a href="#">Pendidikan</a></li>
-                        <li><a href="#">Kesehatan</a></li>
-                        <li><a href="#">Profil</a></li>
+                        <li><a href="#">Olahraga</a></li>
+                        <li><a href="#">Hiburan</a></li>
+                        <li><a href="#">Gaya Hidup</a></li>
                     </ul>
-                </div>
+                </nav>
             </div>
-        </nav>
+        </div>
     </header>
-    
-    <!-- Hero Section -->
-    <section class="hero">
+
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news">
         <div class="container">
-            <div class="featured-interview animate-fadeIn">
-                <div class="featured-interview-content">
-                    <div class="interview-image">
-                        <img src="/api/placeholder/600/500" alt="Wawancara dengan CEO Startup">
-                    </div>
-                    <div class="interview-details">
-                        <span class="interview-tag">Teknologi</span>
-                        <h2>Wawancara Eksklusif dengan CEO Startup Fintech Terbesar di Indonesia</h2>
-                        <div class="interview-meta">
-                            <div class="interviewer-image">
-                                <img src="/api/placeholder/100/100" alt="Budi Santoso">
-                            </div>
-                            <div class="interviewer-info">
-                                <h4>Budi Santoso</h4>
-                                <p>Editor Senior Teknologi</p>
-                            </div>
-                        </div>
-                        <div class="interview-excerpt">
-                            "Kami melihat potensi besar di pasar keuangan Indonesia, terutama untuk segmen yang belum terlayani oleh bank konvensional. Dalam 5 tahun ke depan, kami menargetkan untuk menjangkau 50 juta pengguna aktif di seluruh Indonesia..."
-                        </div>
-                        <a href="#" class="read-more">Baca Selengkapnya</a>
-                        <div class="video-button">▶</div>
-                    </div>
-                </div>
+            <div class="breaking-news-content">
+                <div class="breaking-news-label">BREAKING NEWS</div>
+                <span>Gempa Bumi M 7.0 Guncang Jawa Timur • Indeks Harga Saham Gabungan Menembus 7.000 • Tim Nasional Indonesia Lolos ke Piala Dunia 2026</span>
             </div>
-        </div>
-    </section>
-    
-    <!-- Latest Interviews -->
-    <section class="latest-interviews">
-        <div class="container">
-            <div class="section-title">
-                <h2>Wawancara Terbaru</h2>
-            </div>
-            
-            <div class="interview-grid">
-                <div class="interview-card animate-fadeIn">
-                    <div class="interview-card-img">
-                        <img src="/api/placeholder/400/300" alt="Gubernur Jawa Timur">
-                        <span class="interview-card-tag">Politik</span>
-                        <div class="interview-card-bookmark">♡</div>
-                    </div>
-                    <div class="interview-card-content">
-                        <h3>Gubernur Jawa Timur Ungkap Strategi Percepatan Ekonomi Daerah</h3>
-                        <div class="interview-card-meta">
-                            <div class="interviewer-image">
-                                <img src="/api/placeholder/100/100" alt="Dian Permata">
-                            </div>
-                            <div class="interviewer-info">
-                                <h4>Dian Permata</h4>
-                            </div>
-                        </div>
-                        <div class="interview-card-excerpt">
-                            Program inovasi daerah "Jatim Bangkit" akan fokus pada tiga sektor utama: pertanian, pariwisata, dan UKM digital...
-                        </div>
-                        <div class="interview-card-date">
-                            <span>08 Mei 2025</span>
-                            <span class="interview-length"><i>⏱</i> 15 menit baca</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="interview-card animate-fadeIn">
-                    <div class="interview-card-img">
-                        <img src="/api/placeholder/400/300" alt="Chef Terkenal">
-                        <span class="interview-card-tag">Kuliner</span>
-                        <div class="interview-card-bookmark">♡</div>
-                    </div>
-                    <div class="interview-card-content">
-                        <h3>Chef Renata Berbagi Rahasia Kuliner Indonesia ke Panggung Dunia</h3>
-                        <div class="interview-card-meta">
-                            <div class="interviewer-image">
-                                <img src="/api/placeholder/100/100" alt="Sari Wijaya">
-                            </div>
-                            <div class="interviewer-info">
-                                <h4>Sari Wijaya</h4>
-                            </div>
-                        </div>
-                        <div class="interview-card-excerpt">
-                            Perjalanan membawa masakan Indonesia ke kompetisi internasional penuh tantangan, tapi saya selalu membawa filosofi "dari rempah untuk dunia"...
-                        </div>
-                        <div class="interview-card-date">
-                            <span>07 Mei 2025</span>
-                            <span class="interview-length"><i>⏱</i> 12 menit baca</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="interview-card animate-fadeIn">
-                    <div class="interview-card-img">
-                        <img src="/api/placeholder/400/300" alt="Peneliti Vaksin">
-                        <span class="interview-card-tag">Kesehatan</span>
-                        <div class="interview-card-bookmark">♡</div>
-                    </div>
-                    <div class="interview-card-content">
-                        <h3>Prof. Dr. Andi Hakim: "Vaksin Dengue Karya Anak Bangsa Siap Produksi Massal"</h3>
-                        <div class="interview-card-meta">
-                            <div class="interviewer-image">
-                                <img src="/api/placeholder/100/100" alt="dr. Ratna Dewi">
-                            </div>
-                            <div class="interviewer-info">
-                                <h4>dr. Ratna Dewi</h4>
-                            </div>
-                        </div>
-                        <div class="interview-card-excerpt">
-                            Setelah 10 tahun penelitian, akhirnya vaksin dengue buatan Indonesia telah melewati uji klinis fase III dengan tingkat efikasi 91,3%...
-                        </div>
-                        <div class="interview-card-date">
-                            <span>06 Mei 2025</span>
-                            <span class="interview-length"><i>⏱</i> 20 menit baca</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Featured Videos Section - New Section -->
-    <section class="featured-videos">
-        <div class="container">
-            <div class="section-title">
-                <h2>Video Wawancara Pilihan</h2>
-            </div>
-            
-            <div class="video-carousel">
-                <div class="video-wrapper">
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <img src="/api/placeholder/400/250" alt="Video Wawancara 1">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="video-content">
-                            <h3>Wawancara Bersama Tokoh Pendidikan Nasional</h3>
-                            <div class="video-meta">
-                                <span>08 Mei 2025</span>
-                                <span class="duration">15:24</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <img src="/api/placeholder/400/250" alt="Video Wawancara 2">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="video-content">
-                            <h3>Exclusive: Menteri Keuangan Bahas APBN 2026</h3>
-                            <div class="video-meta">
-                                <span>07 Mei 2025</span>
-                                <span class="duration">22:17</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <img src="/api/placeholder/400/250" alt="Video Wawancara 3">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="video-content">
-                            <h3>Seniman Muda Indonesia Bicara Tentang Kreativitas</h3>
-                            <div class="video-meta">
-                                <span>05 Mei 2025</span>
-                                <span class="duration">18:45</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <img src="/api/placeholder/400/250" alt="Video Wawancara 4">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="video-content">
-                            <h3>Dialog Ekslusif dengan Pengusaha Sukses</h3>
-                            <div class="video-meta">
-                                <span>03 Mei 2025</span>
-                                <span class="duration">25:10</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="carousel-buttons">
-                    <button class="carousel-button">◀</button>
-                    <button class="carousel-button">▶</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Categories Section -->
-    <section class="categories-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Kategori Wawancara</h2>
-            </div>
-            
-            <div class="categories-container">
-                <div class="category-card animate-fadeIn">
-                    <div class="category-icon">B</div>
-                    <h3>Bisnis</h3>
-                    <p>Wawancara dengan para pelaku bisnis, pengusaha, startup, dan ekonom terkemuka.</p>
-                    <a href="#" class="category-link">Lihat Wawancara</a>
-                </div>
-                
-                <div class="category-card animate-fadeIn">
-                    <div class="category-icon">P</div>
-                    <h3>Politik</h3>
-                    <p>Wawancara dengan tokoh politik, pejabat publik, dan pengamat politik nasional.</p>
-                    <a href="#" class="category-link">Lihat Wawancara</a>
-                </div>
-                
-                <div class="category-card animate-fadeIn">
-                    <div class="category-icon">T</div>
-                    <h3>Teknologi</h3>
-                    <p>Wawancara dengan inovator teknologi, developer, dan tokoh di industri digital.</p>
-                    <a href="#" class="category-link">Lihat Wawancara</a>
-                </div>
-                
-                <div class="category-card animate-fadeIn">
-                    <div class="category-icon">B</div>
-                    <h3>Budaya</h3>
-                    <p>Wawancara dengan seniman, budayawan, dan pelaku seni tradisional Indonesia.</p>
-                    <a href="#" class="category-link">Lihat Wawancara</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Stats Counter - New Section -->
-    <section class="stats-counter">
-        <div class="container">
-            <div class="section-title">
-                <h2>KlikTerkini.id dalam Angka</h2>
-            </div>
-            
-            <div class="stats-container">
-                <div class="counter-item">
-                    <div class="counter-icon">📰</div>
-                    <div class="counter-number">1250</div>
-                    <div class="counter-text">Wawancara</div>
-                </div>
-                
-                <div class="counter-item">
-                    <div class="counter-icon">👥</div>
-                    <div class="counter-number">872</div>
-                    <div class="counter-text">Tokoh Narasumber</div>
-                </div>
-                
-                <div class="counter-item">
-                    <div class="counter-icon">👨‍💼</div>
-                    <div class="counter-number">45</div>
-                    <div class="counter-text">Jurnalis & Editor</div>
-                </div>
-                
-                <div class="counter-item">
-                    <div class="counter-icon">👁️</div>
-                    <div class="counter-number">15</div>
-                    <div class="counter-text">Juta Pembaca</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Main Content with Sidebar -->
-    <div class="container">
-        <div class="main-content">
-            <div class="content">
-                <!-- Wawancara List -->
-                <div class="interview-list">
-                    <div class="interview-list-item animate-fadeIn">
-                        <div class="interview-list-img">
-                            <img src="/api/placeholder/500/400" alt="Wawancara dengan Menteri">
-                        </div>
-                        <div class="interview-list-content">
-                            <span class="interview-tag">Pendidikan</span>
-                            <h3>Menteri Pendidikan: "Kurikulum Merdeka Belajar Akan Terus Disempurnakan"</h3>
-                            <div class="interview-list-meta">
-                                <div class="interviewer-image">
-                                    <img src="/api/placeholder/100/100" alt="Ahmad Fadli">
-                                </div>
-                                <div class="interviewer-info">
-                                    <h4>Ahmad Fadli</h4>
-                                    <p>Editor Pendidikan</p>
-                                </div>
-                            </div>
-                            <div class="interview-list-excerpt">
-                                Dalam wawancara eksklusif ini, Menteri Pendidikan mengungkapkan rencana pengembangan kurikulum Merdeka Belajar untuk 5 tahun ke depan, termasuk integrasi lebih banyak keterampilan digital dan kewirausahaan dalam materi pembelajaran sekolah...
-                            </div>
-                            <div class="interview-list-footer">
-                                <div class="interview-list-stats">
-                                    <span class="interview-stat"><i>👁️</i> 3.5k</span>
-                                    <span class="interview-stat"><i>💬</i> 42</span>
-                                    <span class="interview-stat"><i>♡</i> 215</span>
-                                </div>
-                                <a href="#" class="read-more">Baca Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="interview-list-item animate-fadeIn">
-                        <div class="interview-list-img">
-                            <img src="/api/placeholder/500/400" alt="Wawancara dengan Atlet">
-                        </div>
-                        <div class="interview-list-content">
-                            <span class="interview-tag">Olahraga</span>
-                            <h3>Greysia Polii: "Regenerasi Atlet Bulu Tangkis Indonesia Harus Dipercepat"</h3>
-                            <div class="interview-list-meta">
-                                <div class="interviewer-image">
-                                    <img src="/api/placeholder/100/100" alt="Reza Pradana">
-                                </div>
-                                <div class="interviewer-info">
-                                    <h4>Reza Pradana</h4>
-                                    <p>Jurnalis Olahraga</p>
-                                </div>
-                            </div>
-                            <div class="interview-list-excerpt">
-                                Legenda bulu tangkis Indonesia, Greysia Polii, berbicara tentang kondisi pembinaan atlet muda saat ini dan memberikan pandangannya tentang persiapan menghadapi Olimpiade 2028...
-                            </div>
-                            <div class="interview-list-footer">
-                                <div class="interview-list-stats">
-                                    <span class="interview-stat"><i>👁️</i> 4.2k</span>
-                                    <span class="interview-stat"><i>💬</i> 57</span>
-                                    <span class="interview-stat"><i>♡</i> 328</span>
-                                </div>
-                                <a href="#" class="read-more">Baca Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="interview-list-item animate-fadeIn">
-                        <div class="interview-list-img">
-                            <img src="/api/placeholder/500/400" alt="Wawancara dengan Ekonom">
-                        </div>
-                        <div class="interview-list-content">
-                            <span class="interview-tag">Ekonomi</span>
-                            <h3>Ekonom Senior Bank Dunia: "Indonesia Berpotensi Jadi 5 Besar Ekonomi Dunia"</h3>
-                            <div class="interview-list-meta">
-                                <div class="interviewer-image">
-                                    <img src="/api/placeholder/100/100" alt="Maya Putri">
-                                </div>
-                                <div class="interviewer-info">
-                                    <h4>Maya Putri</h4>
-                                    <p>Kepala Desk Ekonomi</p>
-                                </div>
-                            </div>
-                            <div class="interview-list-excerpt">
-                                Dalam analisis terbarunya, ekonom senior Bank Dunia memaparkan potensi ekonomi Indonesia jika reformasi struktural dan transformasi digital berhasil dijalankan dengan konsisten...
-                            </div>
-                            <div class="interview-list-footer">
-                                <div class="interview-list-stats">
-                                    <span class="interview-stat"><i>👁️</i> 6.8k</span>
-                                    <span class="interview-stat"><i>💬</i> 124</span>
-                                    <span class="interview-stat"><i>♡</i> 476</span>
-                                </div>
-                                <a href="#" class="read-more">Baca Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Pagination - New Feature -->
-                <div class="pagination">
-                    <a href="#" class="page-prev">« Sebelumnya</a>
-                    <a href="#" class="page-number active">1</a>
-                    <a href="#" class="page-number">2</a>
-                    <a href="#" class="page-number">3</a>
-                    <span class="page-dots">...</span>
-                    <a href="#" class="page-number">12</a>
-                    <a href="#" class="page-next">Selanjutnya »</a>
-                </div>
-            </div>
-            
-            <!-- Sidebar -->
-            <aside class="sidebar">
-                <div class="sidebar-widget popular-interviews">
-                    <h3 class="widget-title">Wawancara Populer</h3>
-                    <div class="interview">
-                        <div class="interview-thumbnail">
-                            <img src="/api/placeholder/100/80" alt="Wawancara Populer 1">
-                        </div>
-                        <div class="interview-info">
-                            <h4>Ridwan Kamil Bicara Soal Smart City dan Masa Depan Urbanisasi</h4>
-                            <div class="interview-meta">
-                                <span><i>📅</i> 10 Mei 2025</span>
-                                <span><i>👁️</i> 8.3k</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="interview">
-                        <div class="interview-thumbnail">
-                            <img src="/api/placeholder/100/80" alt="Wawancara Populer 2">
-                        </div>
-                        <div class="interview-info">
-                            <h4>Najwa Shihab: "Jurnalisme Independen Kunci Demokrasi Sehat"</h4>
-                            <div class="interview-meta">
-                                <span><i>📅</i> 08 Mei 2025</span>
-                                <span><i>👁️</i> 10.2k</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="interview">
-                        <div class="interview-thumbnail">
-                            <img src="/api/placeholder/100/80" alt="Wawancara Populer 3">
-                        </div>
-                        <div class="interview-info">
-                            <h4>CEO GoTo Ungkap Strategi Ekspansi ke Asia Tenggara</h4>
-                            <div class="interview-meta">
-                                <span><i>📅</i> 06 Mei 2025</span>
-                                <span><i>👁️</i> 7.5k</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="sidebar-widget featured-interviewer">
-                    <h3 class="widget-title">Pewawancara Unggulan</h3>
-                    <div class="interviewer-avatar">
-                        <img src="/api/placeholder/150/150" alt="Maya Putri">
-                    </div>
-                    <h4 class="interviewer-name">Maya Putri</h4>
-                    <p class="interviewer-role">Kepala Desk Ekonomi</p>
-                    <p class="interviewer-bio">Jurnalis senior dengan pengalaman lebih dari 15 tahun meliput isu-isu ekonomi dan bisnis. Pemenang Anugerah Jurnalistik Indonesia 2023.</p>
-                    <div class="interviewer-stats">
-                        <div class="stat">
-                            <div class="stat-number">127</div>
-                            <div class="stat-label">Wawancara</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">15</div>
-                            <div class="stat-label">Tahun</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">5</div>
-                            <div class="stat-label">Penghargaan</div>
-                        </div>
-                    </div>
-                    <a href="#" class="view-profile">Lihat Profil</a>
-                </div>
-                
-                <!-- Poll Widget - New Widget -->
-                <div class="sidebar-widget poll-widget">
-                    <h3 class="widget-title">Polling Pembaca</h3>
-                    <p class="question">Topik wawancara apa yang paling Anda minati?</p>
-                    <div class="poll-options">
-                        <div class="poll-option">
-                            <div class="percentage" style="width: 42%;"></div>
-                            <div class="poll-option-text">
-                                <span>Teknologi & Inovasi</span>
-                                <span class="poll-result">42%</span>
-                            </div>
-                        </div>
-                        <div class="poll-option selected">
-                            <div class="percentage" style="width: 28%;"></div>
-                            <div class="poll-option-text">
-                                <span>Bisnis & Ekonomi</span>
-                                <span class="poll-result">28%</span>
-                            </div>
-                        </div>
-                        <div class="poll-option">
-                            <div class="percentage" style="width: 15%;"></div>
-                            <div class="poll-option-text">
-                                <span>Politik & Kebijakan</span>
-                                <span class="poll-result">15%</span>
-                            </div>
-                        </div>
-                        <div class="poll-option">
-                            <div class="percentage" style="width: 9%;"></div>
-                            <div class="poll-option-text">
-                                <span>Seni & Budaya</span>
-                                <span class="poll-result">9%</span>
-                            </div>
-                        </div>
-                        <div class="poll-option">
-                            <div class="percentage" style="width: 6%;"></div>
-                            <div class="poll-option-text">
-                                <span>Lainnya</span>
-                                <span class="poll-result">6%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#" class="poll-vote-btn">Vote</a>
-                </div>
-                
-                <div class="sidebar-widget">
-                    <h3 class="widget-title">Topik Populer</h3>
-                    <div class="tag-cloud">
-                        <a href="#" class="tag">Ekonomi Digital</a>
-                        <a href="#" class="tag">Startup</a>
-                        <a href="#" class="tag">Kebijakan Publik</a>
-                        <a href="#" class="tag">Pendidikan</a>
-                        <a href="#" class="tag">Kesehatan</a>
-                        <a href="#" class="tag">Lingkungan</a>
-                        <a href="#" class="tag">UMKM</a>
-                        <a href="#" class="tag">Teknologi</a>
-                        <a href="#" class="tag">Energi Terbarukan</a>
-                        <a href="#" class="tag">Pariwisata</a>
-                        <a href="#" class="tag">Transportasi</a>
-                        <a href="#" class="tag">Budaya</a>
-                    </div>
-                </div>
-                
-                <!-- Subscribe Widget - New Widget -->
-                <div class="sidebar-widget subscribe-widget">
-                    <h3 class="widget-title">Ikuti Kami</h3>
-                    <p>Dapatkan update wawancara terbaru dan konten eksklusif dari KlikTerkini.id</p>
-                    <div class="social-follow">
-                        <a href="#" class="social-btn facebook">F</a>
-                        <a href="#" class="social-btn twitter">T</a>
-                        <a href="#" class="social-btn instagram">I</a>
-                        <a href="#" class="social-btn youtube">Y</a>
-                    </div>
-                    <form class="subscribe-form">
-                        <input type="email" placeholder="Masukkan email Anda">
-                        <button type="submit">Berlangganan</button>
-                    </form>
-                </div>
-            </aside>
         </div>
     </div>
-    
-    <!-- Newsletter -->
-    <section class="newsletter">
+
+    <!-- Main Content -->
+    <main>
         <div class="container">
-            <h3>Dapatkan Wawancara Eksklusif di Email Anda</h3>
-            <p>Berlangganan newsletter kami untuk mendapatkan akses awal ke wawancara-wawancara menarik dan konten eksklusif dari KlikTerkini.id setiap minggunya.</p>
-            <div class="newsletter-form">
-                <input type="email" placeholder="Masukkan alamat email Anda">
-                <button>Berlangganan</button>
+            <div class="content-wrapper">
+                <!-- Main Column -->
+                <div class="main-column">
+                    <!-- Featured News -->
+                    <article class="featured-news">
+                        <div class="featured-image">
+                            <img src="/api/placeholder/800/400" alt="Featured news" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="featured-content">
+                            <span class="category-tag">Politik</span>
+                            <h1 class="featured-title">Pemerintah Luncurkan Program Subsidi BBM Tepat Sasaran</h1>
+                            <p class="featured-excerpt">Program subsidi BBM tepat sasaran resmi diluncurkan hari ini. Kebijakan ini diharapkan dapat menghemat anggaran negara hingga Rp 100 triliun per tahun...</p>
+                            <div class="meta-info">
+                                <span>Oleh Admin</span>
+                                <span>10 Mei 2025</span>
+                                <span>5 menit baca</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- News Grid -->
+                    <div class="news-grid">
+                        <article class="news-card">
+                            <div class="news-image">
+                                <img src="/api/placeholder/400/200" alt="News 1" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="news-content">
+                                <span class="category-tag">Ekonomi</span>
+                                <h2 class="news-title">Bank Indonesia Pertahankan Suku Bunga di Level 5,75%</h2>
+                                <p class="news-excerpt">BI memutuskan untuk mempertahankan suku bunga acuan di level 5,75% untuk menjaga stabilitas ekonomi...</p>
+                                <div class="meta-info">
+                                    <span>2 jam lalu</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-card">
+                            <div class="news-image">
+                                <img src="/api/placeholder/400/200" alt="News 2" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="news-content">
+                                <span class="category-tag">Teknologi</span>
+                                <h2 class="news-title">Indonesia Luncurkan Satelit Internet Kecepatan Tinggi</h2>
+                                <p class="news-excerpt">Satelit SATRIA-2 berhasil diluncurkan untuk memperluas akses internet di seluruh Indonesia...</p>
+                                <div class="meta-info">
+                                    <span>4 jam lalu</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-card">
+                            <div class="news-image">
+                                <img src="/api/placeholder/400/200" alt="News 3" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="news-content">
+                                <span class="category-tag">Olahraga</span>
+                                <h2 class="news-title">Persib Bandung Juara Liga 1 Indonesia 2024/2025</h2>
+                                <p class="news-excerpt">Maung Bandung berhasil mengamankan gelar juara setelah mengalahkan Persija Jakarta 2-1...</p>
+                                <div class="meta-info">
+                                    <span>6 jam lalu</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-card">
+                            <div class="news-image">
+                                <img src="/api/placeholder/400/200" alt="News 4" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="news-content">
+                                <span class="category-tag">Hiburan</span>
+                                <h2 class="news-title">Film Indonesia Raih Penghargaan di Festival Cannes</h2>
+                                <p class="news-excerpt">Film "Langit Senja" karya sutradara muda Indonesia meraih penghargaan Best Director...</p>
+                                <div class="meta-info">
+                                    <span>8 jam lalu</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Advertisement Space -->
+                    <div class="ad-space">
+                        <p>Iklan</p>
+                        <p>728 x 90</p>
+                    </div>
+
+                    <!-- More News -->
+                    <div class="news-grid">
+                        <article class="news-card">
+                            <div class="news-image">
+                                <img src="/api/placeholder/400/200" alt="News 5" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="news-content">
+                                <span class="category-tag">Gaya Hidup</span>
+                                <h2 class="news-title">Tren Fashion Ramah Lingkungan Meningkat di Indonesia</h2>
+                                <p class="news-excerpt">Konsumen muda Indonesia semakin sadar akan pentingnya fashion berkelanjutan...</p>
+                                <div class="meta-info">
+                                    <span>10 jam lalu</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-card">
+                            <div class="news-image">
+                                <img src="/api/placeholder/400/200" alt="News 6" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="news-content">
+                                <span class="category-tag">Politik</span>
+                                <h2 class="news-title">RUU Omnibus Law Kesehatan Disetujui DPR</h2>
+                                <p class="news-excerpt">Undang-undang baru ini diharapkan dapat meningkatkan kualitas pelayanan kesehatan...</p>
+                                <div class="meta-info">
+                                    <span>12 jam lalu</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Search -->
+                    <div class="sidebar-section">
+                        <form class="search-form">
+                            <input type="search" placeholder="Cari berita...">
+                            <button type="submit">Cari</button>
+                        </form>
+                    </div>
+
+                    <!-- Popular News -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Berita Populer</h3>
+                        <div class="popular-item">
+                            <div class="popular-number">1</div>
+                            <div class="popular-content">
+                                <h4 class="popular-title">Gempa Bumi M 7.0 Guncang Jawa Timur, Tidak Berpotensi Tsunami</h4>
+                                <div class="popular-meta">2 jam lalu</div>
+                            </div>
+                        </div>
+                        <div class="popular-item">
+                            <div class="popular-number">2</div>
+                            <div class="popular-content">
+                                <h4 class="popular-title">Harga Emas Antam Naik Rp 15.000 per Gram</h4>
+                                <div class="popular-meta">4 jam lalu</div>
+                            </div>
+                        </div>
+                        <div class="popular-item">
+                            <div class="popular-number">3</div>
+                            <div class="popular-content">
+                                <h4 class="popular-title">Cuaca Ekstrem Diprediksi Hingga Akhir Mei 2025</h4>
+                                <div class="popular-meta">6 jam lalu</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Kategori</h3>
+                        <ul class="category-widget">
+                            <li><a href="#">Politik <span>(245)</span></a></li>
+                            <li><a href="#">Ekonomi <span>(189)</span></a></li>
+                            <li><a href="#">Teknologi <span>(156)</span></a></li>
+                            <li><a href="#">Olahraga <span>(134)</span></a></li>
+                            <li><a href="#">Hiburan <span>(123)</span></a></li>
+                            <li><a href="#">Gaya Hidup <span>(98)</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Advertisement -->
+                    <div class="sidebar-section">
+                        <div class="ad-space">
+                            <p>Iklan</p>
+                            <p>300 x 250</p>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Ikuti Kami</h3>
+                        <div class="social-links">
+                            <a href="#">FB</a>
+                            <a href="#">TW</a>
+                            <a href="#">IG</a>
+                            <a href="#">YT</a>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </div>
-    </section>
-    
+    </main>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-widget about-widget">
-                    <h4>Tentang KlikTerkini.id</h4>
-                    <p>KlikTerkini.id adalah portal wawancara eksklusif yang menyajikan percakapan mendalam dengan tokoh-tokoh penting dari berbagai bidang di Indonesia. Kami berkomitmen untuk menghadirkan wawasan dan perspektif yang inspiratif melalui wawancara berkualitas.</p>
-                    <div class="footer-social">
-                        <a href="#">F</a>
-                        <a href="#">T</a>
-                        <a href="#">I</a>
-                        <a href="#">Y</a>
+                <div class="footer-section">
+                    <h3>Tentang KlikTerkini.id</h3>
+                    <p>KlikTerkini.id adalah portal berita terkini dan terpercaya yang menyajikan informasi aktual dari berbagai bidang.</p>
+                    <div class="social-links">
+                        <a href="#">FB</a>
+                        <a href="#">TW</a>
+                        <a href="#">IG</a>
+                        <a href="#">YT</a>
                     </div>
                 </div>
-                
-                <div class="footer-widget">
-                    <h4>Kategori Populer</h4>
+                <div class="footer-section">
+                    <h3>Kategori</h3>
                     <ul>
-                        <li><a href="#"><i></i> Bisnis & Ekonomi</a></li>
-                        <li><a href="#"><i></i> Politik & Kebijakan</a></li>
-                        <li><a href="#"><i></i> Teknologi & Inovasi</a></li>
-                        <li><a href="#"><i></i> Seni & Budaya</a></li>
-                        <li><a href="#"><i></i> Pendidikan</a></li>
+                        <li><a href="#">Politik</a></li>
+                        <li><a href="#">Ekonomi</a></li>
+                        <li><a href="#">Teknologi</a></li>
+                        <li><a href="#">Olahraga</a></li>
+                        <li><a href="#">Hiburan</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-widget">
-                    <h4>Informasi</h4>
+                <div class="footer-section">
+                    <h3>Layanan</h3>
                     <ul>
-                        <li><a href="#"><i></i> Tentang Kami</a></li>
-                        <li><a href="#"><i></i> Tim Editorial</a></li>
-                        <li><a href="#"><i></i> Karir</a></li>
-                        <li><a href="#"><i></i> Kebijakan Privasi</a></li>
-                        <li><a href="#"><i></i> Pedoman Media</a></li>
-                        <li><a href="#"><i></i> Hubungi Kami</a></li>
+                        <li><a href="#">Pasang Iklan</a></li>
+                        <li><a href="#">Hubungi Kami</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-widget">
-                    <h4>Alamat</h4>
-                    <p>Gedung Media Center<br>
-                    Jl. Jendral Sudirman No. 123<br>
-                    Jakarta Pusat, 10220<br>
-                    Indonesia<br><br>
-                    Email: redaksi@klikterkini.id<br>
-                    Telp: (021) 555-7890</p>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Dapatkan berita terkini langsung di email Anda</p>
+                    <form class="search-form" style="margin-top: 1rem;">
+                        <input type="email" placeholder="Email Anda">
+                        <button type="submit">Daftar</button>
+                    </form>
                 </div>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2025 KlikTerkini.id - Portal Wawancara Eksklusif Indonesia</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KlikTerkini.id. All rights reserved.</p>
             </div>
-            <a href="#" class="back-to-top">↑</a>
         </div>
     </footer>
-    
-    <!-- Dark Mode Toggle - New Feature -->
-    <div class="dark-mode-toggle">☾</div>
-    
-    <!-- Simple JavaScript for Loading and Dark Mode -->
-    <script>
-        // Remove loading spinner when page is loaded
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.querySelector('.loading').style.opacity = '0';
-                setTimeout(function() {
-                    document.querySelector('.loading').style.display = 'none';
-                }, 500);
-            }, 800);
-        });
-        
-        // Dark Mode Toggle
-        const darkModeToggle = document.querySelector('.dark-mode-toggle');
-        darkModeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-            if (document.body.classList.contains('dark-mode')) {
-                darkModeToggle.innerHTML = '☀';
-            } else {
-                darkModeToggle.innerHTML = '☾';
-            }
-        });
-        
-        // Video Carousel Navigation
-        const carousel = document.querySelector('.video-wrapper');
-        const carouselBtns = document.querySelectorAll('.carousel-button');
-        
-        carouselBtns[0].addEventListener('click', function() {
-            carousel.scrollBy({left: -300, behavior: 'smooth'});
-        });
-        
-        carouselBtns[1].addEventListener('click', function() {
-            carousel.scrollBy({left: 300, behavior: 'smooth'});
-        });
-        
-        // Bookmark Toggle
-        const bookmarkBtns = document.querySelectorAll('.interview-card-bookmark');
-        bookmarkBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                this.classList.toggle('active');
-                if (this.classList.contains('active')) {
-                    this.innerHTML = '♥';
-                } else {
-                    this.innerHTML = '♡';
-                }
-            });
-        });
-    </script>
 </body>
 </html>
